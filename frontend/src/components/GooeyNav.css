@@ -1,0 +1,119 @@
+.gooey-nav {
+  position: relative;
+  display: inline-flex;
+  border-radius: 999px;
+  isolation: isolate;
+  --gn-pad: 4px;
+}
+
+.gooey-nav--sm { --gn-pad: 3px; }
+.gooey-nav--md { --gn-pad: 4px; }
+.gooey-nav--lg { --gn-pad: 6px; }
+
+.gooey-nav--framed {
+  background: var(--gn-frame);
+  box-shadow: var(--gn-frame-shadow);
+  border: 1px solid var(--gn-frame-edge);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding: var(--gn-pad);
+}
+
+.gooey-nav__rim {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 1px 0 var(--gn-frame-highlight);
+}
+
+.gooey-nav__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: inherit;
+}
+
+.gooey-nav__canvas {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.gooey-nav__fallback {
+  position: absolute;
+  pointer-events: none;
+  background: var(--gn-pill);
+  border-radius: 999px;
+  z-index: 0;
+  box-shadow: 0 6px 16px -8px rgba(0, 0, 0, 0.3);
+}
+
+.gooey-nav__list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.gooey-nav__list--active {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.gooey-nav__item {
+  display: flex;
+  position: relative;
+}
+
+.gooey-nav__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: var(--gn-muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.gooey-nav--sm .gooey-nav__link { padding: 6px 12px; font-size: 13px; }
+.gooey-nav--lg .gooey-nav__link { padding: 12px 24px; font-size: 16px; }
+
+.gooey-nav__list--active .gooey-nav__link {
+  color: var(--gn-active-ink, #fff);
+}
+
+.gooey-nav__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gooey-nav__label {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .gooey-nav__link {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,64 @@
+.star-border {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--star-border-radius, 12px);
+  background: var(--star-border-surface, #0c0c0f);
+  color: var(--star-border-text, #fafafa);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--star-border-track, rgba(255, 255, 255, 0.1));
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.2s ease;
+  box-shadow:
+    0 4px 14px -4px rgba(37, 99, 235, 0.4),
+    0 2px 6px -2px rgba(0, 0, 0, 0.2);
+  user-select: none;
+}
+
+.star-border:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+  box-shadow:
+    0 8px 22px -6px rgba(37, 99, 235, 0.5),
+    0 4px 10px -4px rgba(0, 0, 0, 0.25);
+}
+
+.star-border:active:not(:disabled) {
+  transform: translateY(0);
+  filter: brightness(0.96);
+}
+
+.star-border:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.3);
+}
+
+.star-border:focus-visible {
+  outline: 2px solid #06b6d4;
+  outline-offset: 3px;
+}
+
+.star-border__light {
+  position: absolute;
+  left: -48px;
+  top: -48px;
+  width: calc(100% + 96px);
+  height: calc(100% + 96px);
+  pointer-events: none;
+  z-index: 0;
+  display: block;
+}
+
+.star-border > *:not(.star-border__light) {
+  position: relative;
+  z-index: 1;
+}

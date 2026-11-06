@@ -1,0 +1,24 @@
+{
+  "name": "CareerMatch — Analyseur de CV",
+  "short_name": "CareerMatch",
+  "description": "Analyse ton CV et compare-le aux offres d'emploi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#4f46e5",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/CareerMatch.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/CareerMatch.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
