@@ -186,6 +186,86 @@ export default function App() {
 
           {tab === "analyze" && (
             <>
+              {/* ============ HERO SPLIT AVEC Internship.jpg ============ */}
+              <section className="relative rounded-2xl overflow-hidden bg-slate-900 shadow-2xl ring-1 ring-white/10">
+                <div className="grid md:grid-cols-2">
+                  {/* Colonne gauche : texte */}
+                  <div className="relative z-10 p-6 sm:p-8 md:p-10 flex flex-col justify-center order-2 md:order-1 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-400/15 text-cyan-300 text-[11px] font-semibold mb-4 w-fit border border-cyan-400/25">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                      Propulsé par l&apos;IA
+                    </span>
+
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 leading-tight">
+                      Trouve le stage
+                      <br />
+                      <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-pink-300 bg-clip-text text-transparent">
+                        qui te correspond
+                      </span>
+                    </h1>
+
+                    <p className="text-slate-300 mb-5 max-w-md text-sm sm:text-base leading-relaxed">
+                      Analyse ton CV, compare-le aux offres, et maximise tes
+                      chances de décrocher ton stage ou ton premier emploi.
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        { icon: "📄", label: "Extraction PDF" },
+                        { icon: "🎯", label: "Score pondéré" },
+                        { icon: "✉️", label: "Lettre IA" },
+                      ].map((f) => (
+                        <span
+                          key={f.label}
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 backdrop-blur text-white text-[11px] font-medium border border-white/10"
+                        >
+                          <span>{f.icon}</span>
+                          <span>{f.label}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Colonne droite : image + cartes flottantes */}
+                  <div className="relative min-h-[240px] sm:min-h-[300px] md:min-h-[400px] order-1 md:order-2 overflow-hidden">
+                    <img
+                      src="/Internship1.jpg"
+                      alt="Internship — Trouve ton stage"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    />
+
+                    {/* Voile dégradé pour lisibilité */}
+                    <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-900/80 via-slate-900/30 md:from-slate-900/40 to-transparent pointer-events-none" />
+
+                    {/* Carte flottante : Score */}
+                    <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white/95 backdrop-blur-md rounded-xl px-3 py-2 shadow-xl border border-white/60 rotate-3 hover:rotate-0 transition-transform duration-300">
+                      <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                        Score
+                      </p>
+                      <p className="text-lg font-bold text-emerald-600 leading-none mt-0.5">
+                        72%
+                      </p>
+                    </div>
+
+                    {/* Carte flottante : Compétences */}
+                    <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-white/95 backdrop-blur-md rounded-xl px-3 py-2 shadow-xl border border-white/60 -rotate-2 hover:rotate-0 transition-transform duration-300">
+                      <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                        Compétences
+                      </p>
+                      <p className="text-lg font-bold text-blue-600 leading-none mt-0.5">
+                        576+
+                      </p>
+                    </div>
+
+                    {/* Pastille IA flottante (desktop) */}
+                    <div className="hidden md:flex absolute top-1/2 right-3 -translate-y-1/2 items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-cyan-500 to-pink-500 text-white text-[10px] font-bold shadow-lg shadow-pink-500/30">
+                      ✨ IA
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* ============ Formulaire d'analyse ============ */}
               <section className="grid md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="bg-white/85 backdrop-blur-md rounded-xl border border-white/60 shadow-sm p-4 sm:p-5">
                   <label className="block text-sm font-semibold mb-2">
@@ -351,6 +431,10 @@ export default function App() {
   );
 }
 
+/* ============================================================
+   Composants secondaires (inchangés)
+   ============================================================ */
+
 function JobMetaCard({ jobMeta }) {
   const { work_mode, contract_types, salary } = jobMeta;
   const hasAny =
@@ -456,7 +540,7 @@ function ScoreCard({ report, meta }) {
           {meta && (
             <p className="text-xs text-slate-400">
               CV analyse : {meta.cv_length} caracteres ·{" "}
-              {meta.cv_skills_count} Compétences détectées
+              {meta.cv_skills_count} competences detectees
             </p>
           )}
         </div>
@@ -508,7 +592,7 @@ function EducationCard({ career }) {
   return (
     <div className="bg-white/85 backdrop-blur-md rounded-xl border border-white/60 shadow-sm p-4 sm:p-6 space-y-4">
       <div className="flex items-center justify-between flex-wrap gap-2">
-        <h2 className="text-lg font-semibold">Formation détectée</h2>
+        <h2 className="text-lg font-semibold">Formation detectee</h2>
         <div className="text-sm text-slate-500">
           {career.count_diplomas} formation{career.count_diplomas > 1 ? "s" : ""}
         </div>
